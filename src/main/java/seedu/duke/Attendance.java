@@ -37,4 +37,9 @@ public class Attendance extends Student {
         return hasAttended;
     }
 
+    @Override
+    public String toString() {
+        return super.toString() + " " + description + " " + hasAttended;
+    }
+
 }

@@ -11,4 +11,9 @@ public class Student {
     public static String getStudentName() {
         return studentName;
     }
+
+    @Override
+    public String toString() {
+        return studentName;
+    }
 }

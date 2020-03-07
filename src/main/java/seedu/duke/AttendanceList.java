@@ -16,6 +16,8 @@ public class AttendanceList {
         switch (commandWord) {
         case "addAttendance":
             return new AddStudentCommand(createStudent(userInput));
+        case "list":
+            return new ListAttendanceCommand();
         case "EXIT":
             return new ExitCommand();
         default:
