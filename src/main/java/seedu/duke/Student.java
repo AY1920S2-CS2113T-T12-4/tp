@@ -2,13 +2,13 @@ package seedu.duke;
 
 public class Student {
 
-    protected static String StudentName;
+    protected static String studentName;
 
-    public Student(String StudentName){
-        this.StudentName = StudentName;
+    public Student(String studentName) {
+        this.studentName = studentName;
     }
 
-    public static String getStudentName(){
-        return StudentName;
+    public static String getStudentName() {
+        return studentName;
     }
 }

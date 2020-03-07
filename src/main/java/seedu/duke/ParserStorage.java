@@ -37,7 +37,8 @@ public class ParserStorage {
 
     public static String toStorageString(Student student) throws DukeException {
         if (student instanceof Attendance) {
-            return student.getStudentName() + " | " + ((Attendance) student).getAttendance() + " | " + ((Attendance) student).getDescription();
+            return student.getStudentName() + " | " + ((Attendance) student).getAttendance()
+                    + " | " + ((Attendance) student).getDescription();
         }
         throw new DukeException(CORRUPTED_TASK);
     }

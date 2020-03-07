@@ -33,13 +33,20 @@ public class Parser {
         }
     }
 
+    /**
+     * Create a student object.
+     *
+     * @param userInput The userInput from Ui.
+     * @return Student Object.
+     * @throws DukeException If the userInput is undefined.
+     */
+
     public static Attendance createStudent(String userInput) throws DukeException {
         int indexOfDescription = userInput.indexOf("c/");
         int indexOfAttendance = userInput.indexOf("p/");
         int indexOfName = userInput.indexOf("n/");
 
         String description;
-        String name;
         String attendance;
         if (indexOfDescription == -1) {
             throw new DukeException("DESCRIPTION ERROR");
@@ -56,7 +63,7 @@ public class Parser {
             description = userInput.substring(userInput.lastIndexOf("c/") + 2, userInput.indexOf("p/")).strip();
             attendance = userInput.substring(userInput.lastIndexOf("p/") + 2, userInput.indexOf("n/")).strip();
         }
-        name = userInput.substring(userInput.lastIndexOf("n/") + 2).strip();
+        String name = userInput.substring(userInput.lastIndexOf("n/") + 2).strip();
         return new Attendance(name,attendance,description);
     }
 }
