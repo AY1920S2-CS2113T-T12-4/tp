@@ -81,6 +81,6 @@ public class Parser {
             attendance = userInput.substring(userInput.lastIndexOf("p/") + 2, userInput.indexOf("n/")).strip();
         }
         String name = userInput.substring(userInput.lastIndexOf("n/") + 2).strip();
-        return new Attendance(name,attendance,description);
+        return new Attendance(name,description,attendance);
     }
 }

@@ -13,7 +13,7 @@ public class Attendance extends Student {
      * @param hasAttended The status of the attendance.
      * @param studentName The name of the student.
      */
-    public Attendance(String description, String hasAttended, String studentName) {
+    public Attendance(String studentName, String description, String hasAttended) {
         super(studentName);
         this.description = description;
         this.hasAttended = hasAttended;

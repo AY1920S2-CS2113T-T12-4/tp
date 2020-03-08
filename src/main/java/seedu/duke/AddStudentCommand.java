@@ -2,14 +2,13 @@ package seedu.duke;
 
 
 /**
- * Class representing a command to add a new task.
- * Types of task that can be created - Todo, Deadline, Event
+ * Class representing a command to add a new student.
  */
 public class AddStudentCommand extends Command {
 
-    private final Student student;
+    private final Attendance student;
 
-    public AddStudentCommand(Student student) {
+    public AddStudentCommand(Attendance student) {
         this.student = student;
     }
 

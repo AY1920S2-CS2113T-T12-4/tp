@@ -18,10 +18,10 @@ public class ParserStorage {
     public static Student createTaskFromStorage(String line) throws DukeException {
         String[] studentParts = line.split("\\|");
         try {
-            String studentName = studentParts[2].strip();
-            String studentAttendance = studentParts[1].strip();
-            String description = studentParts[0].strip();
-            Attendance student = new Attendance(studentName,studentAttendance,description);
+            String studentName = studentParts[0].strip();
+            String studentAttendance = studentParts[2].strip();
+            String description = studentParts[1].strip();
+            Attendance student = new Attendance(studentName,description,studentAttendance);
             return student;
         } catch (Exception e) {
             throw new DukeException(CORRUPTED_TASK);
@@ -37,8 +37,8 @@ public class ParserStorage {
 
     public static String toStorageString(Student student) throws DukeException {
         if (student instanceof Attendance) {
-            return student.getStudentName() + " | " + ((Attendance) student).getAttendance()
-                    + " | " + ((Attendance) student).getDescription();
+            return student.getStudentName() + " | " + ((Attendance) student).getDescription()
+                    + " | " + ((Attendance) student).getAttendance();
         }
         throw new DukeException(CORRUPTED_TASK);
     }

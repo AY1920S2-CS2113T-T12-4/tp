@@ -1,8 +1,6 @@
 package seedu.duke;
 
-import static seedu.duke.Parser.createStudent;
-import static seedu.duke.Parser.getWord;
-import static seedu.duke.Parser.getCommandWord;
+import static seedu.duke.Parser.*;
 
 public class AttendanceList {
     /**
@@ -17,11 +15,14 @@ public class AttendanceList {
         switch (commandWord) {
         case "addAttendance":
             return new AddStudentCommand(createStudent(userInput));
-        case "list":
+        case "listAttendance":
             return new ListAttendanceCommand();
-        case "find":
+        case "findAttendance":
             return new FindStudentCommand(getWord(userInput));
+        case "deleteAttendance":
+            return new DeleteStudentCommand(getIndex(userInput));
         case "EXIT":
+        case "exit":
             return new ExitCommand();
         default:
             throw new DukeException(ErrorMessage.UNKNOWN_COMMAND);

@@ -66,6 +66,11 @@ public class Ui {
         System.out.println(resultlist.size());
     }
 
+    public static void displayDeleted(Student student) {
+        System.out.println("DELETED");
+        System.out.println(Student.getStudentName());
+    }
+
     public String readCommand() {
         sc = new Scanner(System.in);
         return sc.nextLine().strip();
