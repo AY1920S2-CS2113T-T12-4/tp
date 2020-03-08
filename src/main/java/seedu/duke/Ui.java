@@ -24,6 +24,11 @@ public class Ui {
         System.out.print(studentlist.size());
     }
 
+    /**
+     * Display the names of students in the namelist.
+     *
+     * @param studentlist The namelist of students.
+     */
     public static void displayAttendanceList(ArrayList<Student> studentlist) {
         if (!studentlist.isEmpty()) {
             for (int i = 0; i < studentlist.size(); i++) {
@@ -38,6 +43,11 @@ public class Ui {
         }
     }
 
+    /**
+     * Display the search results.
+     *
+     * @param resultlist The results from the search.
+     */
     public static void displaySearchResults(ArrayList<Student> resultlist) {
         if (!resultlist.isEmpty()) {
             for (int i = 0; i < resultlist.size(); i++) {

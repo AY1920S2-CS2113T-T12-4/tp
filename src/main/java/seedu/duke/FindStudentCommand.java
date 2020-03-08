@@ -18,6 +18,7 @@ public class FindStudentCommand extends Command {
 
     /**
      * Executes this command on the given task list and user interface.
+     * Searches the student by name.
      *
      * @param ui The user interface displaying events on the task list.
      * @param storage The duke.storage object containing task list.

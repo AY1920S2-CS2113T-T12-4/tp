@@ -1,6 +1,8 @@
 package seedu.duke;
 
-import static seedu.duke.Parser.*;
+import static seedu.duke.Parser.createStudent;
+import static seedu.duke.Parser.getWord;
+import static seedu.duke.Parser.getCommandWord;
 
 public class AttendanceList {
     /**
