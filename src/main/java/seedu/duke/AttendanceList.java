@@ -1,7 +1,6 @@
 package seedu.duke;
 
-import static seedu.duke.Parser.createStudent;
-import static seedu.duke.Parser.getCommandWord;
+import static seedu.duke.Parser.*;
 
 public class AttendanceList {
     /**
@@ -18,6 +17,8 @@ public class AttendanceList {
             return new AddStudentCommand(createStudent(userInput));
         case "list":
             return new ListAttendanceCommand();
+        case "find":
+            return new FindStudentCommand(getWord(userInput));
         case "EXIT":
             return new ExitCommand();
         default:

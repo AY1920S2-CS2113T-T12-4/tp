@@ -34,6 +34,23 @@ public class Parser {
     }
 
     /**
+     * Get word from userInput.
+     *
+     * @param userInput The userInput read by Ui.
+     * @return The word.
+     * @throws DukeException If userInput is undefined.
+     */
+
+    public static String getWord(String userInput) throws DukeException {
+        try {
+            return userInput.strip().split(" ")[1];
+        } catch (ArrayIndexOutOfBoundsException e) {
+            throw new DukeException(ErrorMessage.INVALID_FORMAT);
+        }
+    }
+
+
+    /**
      * Create a student object.
      *
      * @param userInput The userInput from Ui.

@@ -18,9 +18,9 @@ public class ParserStorage {
     public static Student createTaskFromStorage(String line) throws DukeException {
         String[] studentParts = line.split("\\|");
         try {
-            String studentName = studentParts[0].strip();
+            String studentName = studentParts[2].strip();
             String studentAttendance = studentParts[1].strip();
-            String description = studentParts[2].strip();
+            String description = studentParts[0].strip();
             Attendance student = new Attendance(studentName,studentAttendance,description);
             return student;
         } catch (Exception e) {

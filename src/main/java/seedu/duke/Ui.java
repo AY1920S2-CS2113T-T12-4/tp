@@ -38,6 +38,24 @@ public class Ui {
         }
     }
 
+    public static void displaySearchResults(ArrayList<Student> resultlist) {
+        if (!resultlist.isEmpty()) {
+            for (int i = 0; i < resultlist.size(); i++) {
+                System.out.print("\t");
+                System.out.print(i + 1);
+                System.out.print(". ");
+                System.out.println(resultlist.get(i));
+            }
+            displayNumberOfResultsFound(resultlist);
+        } else {
+            System.out.println("\tItem not found!!!");
+        }
+    }
+
+    private static void displayNumberOfResultsFound(ArrayList<Student> resultlist) {
+        System.out.println(resultlist.size());
+    }
+
     public String readCommand() {
         sc = new Scanner(System.in);
         return sc.nextLine().strip();
