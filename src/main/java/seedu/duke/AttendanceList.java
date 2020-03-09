@@ -1,6 +1,9 @@
 package seedu.duke;
 
-import static seedu.duke.Parser.*;
+import static seedu.duke.Parser.getCommandWord;
+import static seedu.duke.Parser.getIndex;
+import static seedu.duke.Parser.getWord;
+import static seedu.duke.Parser.createStudent;
 
 public class AttendanceList {
     /**
@@ -13,8 +16,10 @@ public class AttendanceList {
     public static Command executeCommand(String userInput) throws DukeException {
         String commandWord = getCommandWord(userInput);
         switch (commandWord) {
+        case "0":
         case "addAttendance":
             return new AddStudentCommand(createStudent(userInput));
+        case "1":
         case "listAttendance":
             return new ListAttendanceCommand();
         case "findAttendance":
