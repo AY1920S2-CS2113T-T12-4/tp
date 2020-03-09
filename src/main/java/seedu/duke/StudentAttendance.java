@@ -1,6 +1,6 @@
 package seedu.duke;
 
-public class Attendance extends Student {
+public class StudentAttendance extends Student {
 
     protected String description;
     protected String hasAttended;
@@ -13,7 +13,7 @@ public class Attendance extends Student {
      * @param hasAttended The status of the attendance.
      * @param studentName The name of the student.
      */
-    public Attendance(String studentName, String description, String hasAttended) {
+    public StudentAttendance(String studentName, String description, String hasAttended) {
         super(studentName);
         this.description = description;
         this.hasAttended = hasAttended;

@@ -1,4 +1,7 @@
-package seedu.duke;
+package seedu.duke.Command.AttendanceCommand;
+
+import seedu.duke.*;
+import seedu.duke.Command.Command;
 
 import java.util.ArrayList;
 

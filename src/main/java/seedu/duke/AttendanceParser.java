@@ -3,7 +3,7 @@ package seedu.duke;
 /**
  * Parser to read String words.
  */
-public class Parser {
+public class AttendanceParser {
 
     /**
      * Get Command word from userInput.
@@ -49,7 +49,6 @@ public class Parser {
         }
     }
 
-
     /**
      * Create a student object.
      *
@@ -58,7 +57,7 @@ public class Parser {
      * @throws DukeException If the userInput is undefined.
      */
 
-    public static Attendance createStudent(String userInput) throws DukeException {
+    public static StudentAttendance createStudentAttendance(String userInput) throws DukeException {
         int indexOfDescription = userInput.indexOf("c/");
         int indexOfAttendance = userInput.indexOf("p/");
         int indexOfName = userInput.indexOf("n/");
@@ -81,6 +80,6 @@ public class Parser {
             attendance = userInput.substring(userInput.lastIndexOf("p/") + 2, userInput.indexOf("n/")).strip();
         }
         String name = userInput.substring(userInput.lastIndexOf("n/") + 2).strip();
-        return new Attendance(name,description,attendance);
+        return new StudentAttendance(name,description,attendance);
     }
 }

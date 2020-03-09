@@ -1,5 +1,10 @@
-package seedu.duke;
+package seedu.duke.Command.AttendanceCommand;
 
+
+import seedu.duke.Command.Command;
+import seedu.duke.DukeException;
+import seedu.duke.Storage;
+import seedu.duke.Ui;
 
 /**
  * Class representing a command to display existing task.

@@ -1,4 +1,8 @@
-package seedu.duke;
+package seedu.duke.Command;
+
+import seedu.duke.DukeException;
+import seedu.duke.Storage;
+import seedu.duke.Ui;
 
 public abstract class Command {
     /**

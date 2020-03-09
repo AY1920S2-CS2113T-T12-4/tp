@@ -1,14 +1,17 @@
-package seedu.duke;
+package seedu.duke.Command.AttendanceCommand;
 
+
+import seedu.duke.*;
+import seedu.duke.Command.Command;
 
 /**
  * Class representing a command to add a new student.
  */
 public class AddStudentCommand extends Command {
 
-    private final Attendance student;
+    private final StudentAttendance student;
 
-    public AddStudentCommand(Attendance student) {
+    public AddStudentCommand(StudentAttendance student) {
         this.student = student;
     }
 

@@ -1,8 +1,9 @@
 package seedu.duke;
 
-import java.util.Scanner;
+import seedu.duke.Command.AttendanceCommand.ExitCommand;
+import seedu.duke.Command.Command;
 
-import static seedu.duke.AttendanceList.executeCommand;
+import static seedu.duke.ExecuteCommand.executeCommand;
 
 public class Duke {
     private static final String FILE_PATH = "Duke.txt";

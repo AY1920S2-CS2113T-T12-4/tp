@@ -1,6 +1,5 @@
 package seedu.duke;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -80,7 +79,7 @@ public class Ui {
         System.out.println(student.getStudentName() + "Attended");
     }
 
-    public void displayAttendance(Attendance student) {
+    public void displayAttendance(StudentAttendance student) {
         System.out.println(student.getStudentName() + "Already M");
     }
 }

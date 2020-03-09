@@ -1,11 +1,14 @@
 package seedu.duke;
 
-import static seedu.duke.Parser.getCommandWord;
-import static seedu.duke.Parser.getIndex;
-import static seedu.duke.Parser.getWord;
-import static seedu.duke.Parser.createStudent;
+import seedu.duke.Command.AttendanceCommand.*;
+import seedu.duke.Command.Command;
 
-public class AttendanceList {
+import static seedu.duke.AttendanceParser.getCommandWord;
+import static seedu.duke.AttendanceParser.getIndex;
+import static seedu.duke.AttendanceParser.getWord;
+import static seedu.duke.AttendanceParser.createStudentAttendance;
+
+public class ExecuteCommand {
     /**
      * The class to handle the execution of the command for attendance.
      *
@@ -16,17 +19,14 @@ public class AttendanceList {
     public static Command executeCommand(String userInput) throws DukeException {
         String commandWord = getCommandWord(userInput);
         switch (commandWord) {
-        case "0":
-        case "addAttendance":
-            return new AddStudentCommand(createStudent(userInput));
-        case "1":
-        case "listAttendance":
+        case "add":
+            return new AddStudentCommand(createStudentAttendance(userInput));
+        case "list":
             return new ListAttendanceCommand();
-        case "findAttendance":
+        case "find":
             return new FindStudentCommand(getWord(userInput));
-        case "deleteAttendance":
+        case "delete":
             return new DeleteStudentCommand(getIndex(userInput));
-        case "EXIT":
         case "exit":
             return new ExitCommand();
         default:

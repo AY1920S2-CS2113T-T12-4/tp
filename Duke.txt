@@ -1,6 +1,10 @@
-CS2113T_Tut1 | .... | ...
-CS2113T_Tut1 | no | Alice
-CS2113T_Tut1 | no | Bob
-CS2113T_Tut1 | no | Charlie
-CS2113T_Tut1 | no | Derth
-CS2113T_Tut1 | no | Alice
+ | .... | ...
+ | no | Alice
+ | no | Bob
+ | no | Charlie
+ | no | Derth
+ | no | Alice
+ | inin | NO
+ | CS2113T | NO
+ | bo | NO
+ | kk | yes
