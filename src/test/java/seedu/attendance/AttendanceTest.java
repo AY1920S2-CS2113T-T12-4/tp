@@ -20,6 +20,6 @@ public class AttendanceTest {
 
     @Test
     void getAttendance() {
-        assertEquals("John Doe Present", attendanceTestUnit.toString());
+        assertEquals("John Doe: Present", attendanceTestUnit.toString());
     }
 }

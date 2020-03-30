@@ -3,6 +3,6 @@ input
 event add n/dinner with colleague
 event add n/World Cup d/2022-11-21 t/0000
 event add n/soccer match v/Kallang d/2020-01-23 t/1900
+event delete i/1
 event list
-event delete i/3
 Bye

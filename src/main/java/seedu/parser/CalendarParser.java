@@ -9,7 +9,7 @@ public class CalendarParser {
 
     public static String[] parseDescription(String parameters) throws DukeException {
         String[] tokens = parameters.split(" ");
-        if (tokens.length != 2) {
+        if (tokens.length != 2 || tokens[0].length() != 3 || tokens[1].length() != 8) {
             throw new DukeException("Please provide the semester and the academic year in this format: "
                     + "s/1 ay/19-20");
         }
@@ -41,9 +41,6 @@ public class CalendarParser {
         int semester;
         if (tokens[0].substring(0,2).equals("s/")) {
             try {
-                if (tokens[0].substring(2).length() > 1) {
-                    throw new DukeException("Please provide integer 1, 2 or 3");
-                }
                 semester = Integer.parseInt(tokens[0].substring(2));
             } catch (NumberFormatException e) {
                 throw new DukeException("Please provide a integer");

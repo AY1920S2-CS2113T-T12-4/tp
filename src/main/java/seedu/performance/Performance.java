@@ -48,4 +48,9 @@ public class Performance {
             return listName1.compareTo(listName2);
         }
     };
+
+    @Override
+    public String toString() {
+        return studentName + ": " + result;
+    }
 }

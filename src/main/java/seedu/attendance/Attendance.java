@@ -36,7 +36,7 @@ public class Attendance {
 
     @Override
     public String toString() {
-        return studentName + " " + isPresent;
+        return studentName + ": " + isPresent;
     }
 
     public static Comparator<Attendance> attendanceStatusComparator = new Comparator<Attendance>() {

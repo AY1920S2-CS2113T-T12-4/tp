@@ -31,16 +31,14 @@ public class DateTime {
      */
     public LocalDateTime getDateTime() {
         try {
-            LocalDateTime localDateTime = LocalDateTime.parse(dateTime, DateTimeFormatter.ofPattern("yyyy-MM-dd HHmm"));
-            return localDateTime;
+            return LocalDateTime.parse(dateTime, DateTimeFormatter.ofPattern("yyyy-MM-dd HHmm"));
         } catch (DateTimeParseException e) {
             if (!isAutoSet) {
                 UI.display("Unknown DateTime format provided. DateTime is set to local time in the format: "
                         + "yyyy-MM-dd HHmm.");
             }
             isAutoSet = true;
-            LocalDateTime currentDateTime = LocalDateTime.now();
-            return currentDateTime;
+            return LocalDateTime.now();
         }
     }
 
@@ -48,24 +46,36 @@ public class DateTime {
      * Gets the numerical value of the month of the event.
      * @return The value of the month
      */
-    public Integer getMonth() {
+    public int getMonth() {
         LocalDateTime localDateTime = getDateTime();
-        int month = localDateTime.getMonthValue();
-        return month;
+        return localDateTime.getMonthValue();
     }
 
     /**
      * Gets the year of the event as a single or double digit number, referring to the current century.
      * @return Year of the event.
      */
-    public Integer getYear() {
+    public int getYear() {
         LocalDateTime localDateTime = getDateTime();
-        int year = localDateTime.getYear() - 2000;
         //only current century format in double digit
-        return year;
+        return localDateTime.getYear() - 2000;
     }
+
+    public int getDate() {
+        LocalDateTime localDateTime = getDateTime();
+        return localDateTime.getDayOfMonth();
+    }
+
 
     public String toString() {
         return this.dateTimeFormat;
+    }
+
+    public String toStorable() {
+        return getDateTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HHmm"));
+    }
+
+    public static DateTime parseStorable(String representation) {
+        return new DateTime(representation);
     }
 }

@@ -25,6 +25,10 @@ public class AttendanceList {
         attendanceList = new ArrayList<>();
     }
 
+    public ArrayList<Attendance> getAttendanceList() {
+        return attendanceList;
+    }
+
     public void addToList(Attendance attendance, String eventName) {
         attendanceList.add(attendance);
         ui.addAttendanceMessage(attendance.studentName, attendance.getAttendanceStatus(), eventName);

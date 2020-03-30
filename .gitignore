@@ -21,3 +21,6 @@ bin/
 *.lck
 
 /text-ui-test/ACTUAL.txtdebug.log 
+.classpath
+.project
+.settings/org.eclipse.buildship.core.prefs

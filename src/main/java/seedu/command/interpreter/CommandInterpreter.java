@@ -21,6 +21,7 @@ public class CommandInterpreter {
      * @return the first word in lower cases
      */
     protected String getFirstWord(String userInput) {
+        userInput = userInput.trim();
         String commandType = userInput.split(" ")[0];
         commandType = commandType.trim();
         commandType = commandType.toLowerCase();
@@ -34,7 +35,6 @@ public class CommandInterpreter {
      * @throws DukeException if there is only 1 word from the input
      */
     protected String getSubsequentWords(String userInput) throws DukeException {
-        userInput = userInput.trim();
         int startIndexOfSpace = userInput.indexOf(" ");
 
         if (startIndexOfSpace == -1) {
@@ -58,6 +58,20 @@ public class CommandInterpreter {
             }
         }
         return false;
+    }
+
+    /**
+     * Check if a string contains the specified flags.
+     * @param string the string to check for flags
+     * @param flags any flags to be checked inside string
+     * @return {@code true} if at least one flag is not found
+     */
+    protected boolean flagDoesNotExist(String string, String... flags) {
+        boolean output = true;
+        for (String flag : flags) {
+            output = output && string.contains(flag);
+        }
+        return !output;
     }
 
     /**

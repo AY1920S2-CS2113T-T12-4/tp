@@ -78,4 +78,20 @@ public class StudentList {
         return data;
     }
 
+    /**
+     * Returns a studentList based on its String representation.
+     * @param representation a String representation of a studentList
+     * @return a studentList
+     */
+    public static StudentList parseString(String representation) {
+        String[] tokens = representation.split("\\|");
+        assert tokens.length > 0 : "Not a studentList";
+
+        String listName = tokens[0];
+        StudentList newStudentList = new StudentList(listName);
+        for (int i = 1; i < tokens.length; ++i) {
+            newStudentList.addToList(tokens[i]);
+        }
+        return newStudentList;
+    }
 }

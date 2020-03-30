@@ -36,12 +36,13 @@ public class AddAttendanceList extends Command {
         System.out.println("Would you like to import an existing student list? "
                 + "If yes, input 'yes'. Else, input anything.");
         if (isByNameList()) {
-            ui.printStudentListCollection();
-            ArrayList<String> studentNameList = fetchAttendanceList();
-            if (studentNameList.isEmpty()) {
-                throw new DukeException("There is no existing student list.");
+            if (studentListCollection.isEmpty()) {
+                ui.displayAttendanceMessage("There is no existing student list to import");
+            } else {
+                ui.printStudentListCollection();
+                ArrayList<String> studentNameList = fetchAttendanceList();
+                appendWithExistingList(studentNameList);
             }
-            appendWithExistingList(studentNameList);
         } else {
             createNewList();
         }

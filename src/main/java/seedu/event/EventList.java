@@ -105,12 +105,15 @@ public class EventList {
      */
     public void editDatetime(int index, String datetime) throws DukeException {
         Event event = this.find(index);
-        if (event instanceof Seminar) {
-            ui.editEventDateTimeMessage(event.getDatetime(), datetime, "Seminar");
-        } else {
-            ui.editEventDateTimeMessage(event.getDatetime(), datetime, "Event");
-        }
+        String oldDateTime = event.getDatetime();
         event.setDatetime(datetime);
+        String newDateTime = event.getDatetime();
+        if (event instanceof Seminar) {
+            ui.editEventDateTimeMessage(oldDateTime, newDateTime, "Seminar");
+        } else {
+            ui.editEventDateTimeMessage(oldDateTime, newDateTime, "Event");
+        }
+
     }
 
     /**

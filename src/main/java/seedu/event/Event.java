@@ -1,7 +1,9 @@
 package seedu.event;
 
+import seedu.attendance.Attendance;
 import seedu.attendance.AttendanceList;
 import seedu.exception.DukeException;
+import seedu.performance.Performance;
 import seedu.performance.PerformanceList;
 
 import java.time.Instant;
@@ -88,6 +90,11 @@ public class Event {
         return datetime.getYear();
     }
 
+    public int getDay() {
+        return datetime.getDate();
+    }
+
+
     /**
      * Sets the datetime of the event.
      * @param datetime the new datetime for the event
@@ -112,8 +119,20 @@ public class Event {
         this.venue = venue;
     }
 
+    public AttendanceList getAttendanceList() {
+        return attendanceList;
+    }
+
+    public void setAttendanceList(AttendanceList attendanceList) {
+        this.attendanceList = attendanceList;
+    }
+
     public PerformanceList getPerformanceList() {
         return performanceList;
+    }
+
+    public void setPerformanceList(PerformanceList performanceList) {
+        this.performanceList = performanceList;
     }
 
     @Override
@@ -130,7 +149,100 @@ public class Event {
         return output;
     }
 
-    public AttendanceList getAttendanceList() {
-        return attendanceList;
+    /**
+     * Returns a storage-compatible String representation of the event.
+     * @return a storage-compatible String representation of the event
+     */
+    public String toStorable() {
+        String type = this.getClass().getSimpleName();
+
+        StringBuilder output = new StringBuilder(type + '|'
+                + name + '|'
+                + datetime.toStorable() + '|'
+                + venue
+                + ",");
+
+        for (Attendance attendance : attendanceList.getAttendanceList()) {
+            output.append(attendance.toString());
+            output.append('|');
+        }
+        // add a space to prevent NoSuchElementException, in case no AttendanceList
+        output.append(",");
+
+        for (Performance performance : performanceList.getPerformanceList()) {
+            output.append(performance.toString());
+            output.append('|');
+        }
+        // add a space to prevent NoSuchElementException, in case no PerformanceList
+        output.append(",");
+
+        return output.toString();
+    }
+
+    /**
+     * Returns an event based on its storage-compatible String representation.
+     * Major components are split by {@code ,}, minor components are split by {@code |}.
+     * @param representation a storage-compatible String representation of an event
+     * @return an Event object
+     */
+    public static Event parseStorable(String representation) throws DukeException {
+        Event newEvent;
+        String[] tokens = representation.split(",");
+
+        // name, datetime, venue
+        String[] token1 = tokens[0].split("\\|");
+        String type = token1[0];
+        String name = token1[1];
+        String datetime = token1[2];
+        String venue;
+        try {
+            venue = token1[3];
+        } catch (ArrayIndexOutOfBoundsException m) {
+            venue = "";
+        }
+
+        switch (type) {
+        case "Seminar":
+            newEvent = new Seminar(name, datetime, venue);
+            break;
+        default:
+            newEvent = new Event(name, datetime, venue);
+        }
+
+        // add attendance list, populate it
+        AttendanceList attendanceList = new AttendanceList();
+        try {
+            String[] token2 = tokens[1].split("\\|");
+            for (String attendance : token2) {
+                String[] attendanceDetail = attendance.split(": ");
+                assert attendanceDetail.length == 2 : "Name contains ': '";
+                String person = attendanceDetail[0];
+                String isPresent = attendanceDetail[1];
+                Attendance newAttendance = new Attendance(person, isPresent);
+
+                attendanceList.addToList(newAttendance, name);
+            }
+        } catch (ArrayIndexOutOfBoundsException m) {
+            // Do nothing, as intended
+        }
+
+        // add performance list, populate it
+        PerformanceList performanceList = new PerformanceList();
+        try {
+            String[] token3 = tokens[2].split("\\|");
+            for (String performance : token3) {
+                String[] performanceDetail = performance.split(": ");
+                assert performanceDetail.length == 2 : "Name contains ': '";
+                String person = performanceDetail[0];
+                String result = performanceDetail[1];
+                Performance newPerformance = new Performance(person, result);
+
+                performanceList.addToList(newPerformance, name);
+            }
+        } catch (ArrayIndexOutOfBoundsException m) {
+            // Do nothing, as intended
+        }
+
+        return newEvent;
     }
 }

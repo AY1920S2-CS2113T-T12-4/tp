@@ -13,10 +13,6 @@ public class AddEvent extends Command {
         this.eventList = eventList;
     }
 
-    public AddEvent(EventList eventList) {
-        this.eventList = eventList;
-    }
-
     @Override
     public void execute() {
         eventList.add(newEvent);
